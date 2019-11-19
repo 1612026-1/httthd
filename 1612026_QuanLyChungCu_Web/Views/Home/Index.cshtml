@@ -1,0 +1,49 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <h3>Thanh lý hợp đồng</h3>
+            <div class="btn-group-vertical" style="width:25rem">
+                <button type="button" id="ktcsvc_btn" class="btn btn-info" style="margin-bottom: 1rem;text-align: left">Kiem tra CSVC</button>
+                <button type="button" class="btn btn-info" style="margin-bottom: 1rem;text-align: left">Tính chi phí</button>
+                <button type="button" class="btn btn-info" style="margin-bottom: 1rem;text-align: left">Cập nhật giấy tờ</button>
+                <button type="button" class="btn btn-info" style="margin-bottom: 1rem;text-align: left">Cập nhật thông tin căn hộ</button>
+                <button type="button" class="btn btn-info" style="margin-bottom: 1rem;text-align: left">Cập nhật thông tin cư dân</button>
+                <button type="button" class="btn btn-info" style="margin-bottom: 1rem;text-align: left">Thông báo cư dân</button>
+
+            </div>
+        </div>
+        @*<span class="badge badge-light" style="margin-left: 16rem">1</span>*@
+        <div class="col-sm-16" style="margin-top:5rem">
+            <div class="btn-group-vertical" id="content">
+                <input type="search" id="inputSearch" style="height:30px;width: 300px;margin-left: 2rem" name="confirmationSearch" class="form-control" placeholder="Search">
+                <br />
+
+            </div>
+
+        </div>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="/action_page.php">
+                    <input type="file" name="pic" accept="image/*">
+                    <input id="submitPic" type="submit">
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="~/Content/mystyle.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/Scripts/KiemTraCSVC.js"></script>
+
+
+

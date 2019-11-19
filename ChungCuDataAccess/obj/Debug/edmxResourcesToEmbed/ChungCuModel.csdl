@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChungCuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CanHo">
+    <Key>
+      <PropertyRef Name="IDCanHo" />
+    </Key>
+    <Property Name="IDCanHo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SoTang" Type="Int32" />
+    <Property Name="DienTich" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CSVCs" Relationship="Self.FK_CSVC_CanHo" FromRole="CanHo" ToRole="CSVC" />
+    <NavigationProperty Name="CuDans" Relationship="Self.FK_CuDan_CanHo" FromRole="CanHo" ToRole="CuDan" />
+  </EntityType>
+  <EntityType Name="CSVC">
+    <Key>
+      <PropertyRef Name="IDCSVC" />
+    </Key>
+    <Property Name="IDCSVC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenCSVC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LoaiCSVC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDCanHo" Type="Int32" />
+    <Property Name="NgayLapDat" Type="DateTime" Precision="0" />
+    <Property Name="NgayKiemTra" Type="DateTime" Precision="0" />
+    <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NVKiemTra" Type="Int32" />
+    <NavigationProperty Name="CanHo" Relationship="Self.FK_CSVC_CanHo" FromRole="CSVC" ToRole="CanHo" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_CSVC_NhanVien" FromRole="CSVC" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="CuDan">
+    <Key>
+      <PropertyRef Name="IDCuDan" />
+    </Key>
+    <Property Name="IDCuDan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CMND" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="IDCanHo" Type="Int32" />
+    <Property Name="IDChuHo" Type="Int32" />
+    <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayDen" Type="DateTime" Precision="0" />
+    <Property Name="NgayDi" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CanHo" Relationship="Self.FK_CuDan_CanHo" FromRole="CuDan" ToRole="CanHo" />
+    <NavigationProperty Name="CuDan1" Relationship="Self.FK_CuDan_CuDan" FromRole="CuDan" ToRole="CuDan1" />
+    <NavigationProperty Name="CuDan2" Relationship="Self.FK_CuDan_CuDan" FromRole="CuDan1" ToRole="CuDan" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="IDNhanVien" />
+    </Key>
+    <Property Name="IDNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CMND" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="SDT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgaySinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CSVCs" Relationship="Self.FK_CSVC_NhanVien" FromRole="NhanVien" ToRole="CSVC" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_CSVC_CanHo">
+    <End Role="CanHo" Type="Self.CanHo" Multiplicity="0..1" />
+    <End Role="CSVC" Type="Self.CSVC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanHo">
+        <PropertyRef Name="IDCanHo" />
+      </Principal>
+      <Dependent Role="CSVC">
+        <PropertyRef Name="IDCanHo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CuDan_CanHo">
+    <End Role="CanHo" Type="Self.CanHo" Multiplicity="0..1" />
+    <End Role="CuDan" Type="Self.CuDan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanHo">
+        <PropertyRef Name="IDCanHo" />
+      </Principal>
+      <Dependent Role="CuDan">
+        <PropertyRef Name="IDCanHo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CSVC_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="CSVC" Type="Self.CSVC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IDNhanVien" />
+      </Principal>
+      <Dependent Role="CSVC">
+        <PropertyRef Name="NVKiemTra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CuDan_CuDan">
+    <End Role="CuDan" Type="Self.CuDan" Multiplicity="0..1" />
+    <End Role="CuDan1" Type="Self.CuDan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CuDan">
+        <PropertyRef Name="IDCuDan" />
+      </Principal>
+      <Dependent Role="CuDan1">
+        <PropertyRef Name="IDChuHo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChungCuEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CanHoes" EntityType="Self.CanHo" />
+    <EntitySet Name="CSVCs" EntityType="Self.CSVC" />
+    <EntitySet Name="CuDans" EntityType="Self.CuDan" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_CSVC_CanHo" Association="Self.FK_CSVC_CanHo">
+      <End Role="CanHo" EntitySet="CanHoes" />
+      <End Role="CSVC" EntitySet="CSVCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CuDan_CanHo" Association="Self.FK_CuDan_CanHo">
+      <End Role="CanHo" EntitySet="CanHoes" />
+      <End Role="CuDan" EntitySet="CuDans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CSVC_NhanVien" Association="Self.FK_CSVC_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="CSVC" EntitySet="CSVCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CuDan_CuDan" Association="Self.FK_CuDan_CuDan">
+      <End Role="CuDan" EntitySet="CuDans" />
+      <End Role="CuDan1" EntitySet="CuDans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

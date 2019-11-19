@@ -1,0 +1,15 @@
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\ChungCuDataAccess.dll.config
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\ChungCuDataAccess.dll
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\ChungCuDataAccess.pdb
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\EntityFramework.dll
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\EntityFramework.xml
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\obj\Debug\ChungCuDataAccess.csprojAssemblyReference.cache
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\obj\Debug\ChungCuDataAccess.csproj.CopyComplete
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\obj\Debug\ChungCuDataAccess.dll
+C:\Users\vov14\source\repos\1612026_QuanLyChungCu_Web\ChungCuDataAccess\obj\Debug\ChungCuDataAccess.pdb

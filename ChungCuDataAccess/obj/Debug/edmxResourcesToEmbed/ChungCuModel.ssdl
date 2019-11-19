@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChungCuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CanHo">
+    <Key>
+      <PropertyRef Name="IDCanHo" />
+    </Key>
+    <Property Name="IDCanHo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoPhong" Type="varchar" MaxLength="50" />
+    <Property Name="SoTang" Type="int" />
+    <Property Name="DienTich" Type="varchar" MaxLength="50" />
+    <Property Name="TinhTrang" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CSVC">
+    <Key>
+      <PropertyRef Name="IDCSVC" />
+    </Key>
+    <Property Name="IDCSVC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCSVC" Type="varchar" MaxLength="50" />
+    <Property Name="LoaiCSVC" Type="varchar" MaxLength="50" />
+    <Property Name="IDCanHo" Type="int" />
+    <Property Name="NgayLapDat" Type="date" />
+    <Property Name="NgayKiemTra" Type="date" />
+    <Property Name="TinhTrang" Type="varchar" MaxLength="50" />
+    <Property Name="NVKiemTra" Type="int" />
+  </EntityType>
+  <EntityType Name="CuDan">
+    <Key>
+      <PropertyRef Name="IDCuDan" />
+    </Key>
+    <Property Name="IDCuDan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="varchar" MaxLength="50" />
+    <Property Name="CMND" Type="varchar" MaxLength="13" />
+    <Property Name="SDT" Type="varchar" MaxLength="11" />
+    <Property Name="IDCanHo" Type="int" />
+    <Property Name="IDChuHo" Type="int" />
+    <Property Name="TinhTrang" Type="varchar" MaxLength="50" />
+    <Property Name="NgayDen" Type="date" />
+    <Property Name="NgayDi" Type="date" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="IDNhanVien" />
+    </Key>
+    <Property Name="IDNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="varchar" MaxLength="50" />
+    <Property Name="CMND" Type="varchar" MaxLength="13" />
+    <Property Name="SDT" Type="varchar" MaxLength="12" />
+    <Property Name="ChucVu" Type="varchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_CSVC_CanHo">
+    <End Role="CanHo" Type="Self.CanHo" Multiplicity="0..1" />
+    <End Role="CSVC" Type="Self.CSVC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanHo">
+        <PropertyRef Name="IDCanHo" />
+      </Principal>
+      <Dependent Role="CSVC">
+        <PropertyRef Name="IDCanHo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CSVC_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="CSVC" Type="Self.CSVC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IDNhanVien" />
+      </Principal>
+      <Dependent Role="CSVC">
+        <PropertyRef Name="NVKiemTra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CuDan_CanHo">
+    <End Role="CanHo" Type="Self.CanHo" Multiplicity="0..1" />
+    <End Role="CuDan" Type="Self.CuDan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanHo">
+        <PropertyRef Name="IDCanHo" />
+      </Principal>
+      <Dependent Role="CuDan">
+        <PropertyRef Name="IDCanHo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CuDan_CuDan">
+    <End Role="CuDan" Type="Self.CuDan" Multiplicity="0..1" />
+    <End Role="CuDan1" Type="Self.CuDan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CuDan">
+        <PropertyRef Name="IDCuDan" />
+      </Principal>
+      <Dependent Role="CuDan1">
+        <PropertyRef Name="IDChuHo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChungCuModelStoreContainer">
+    <EntitySet Name="CanHo" EntityType="Self.CanHo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CSVC" EntityType="Self.CSVC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CuDan" EntityType="Self.CuDan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CSVC_CanHo" Association="Self.FK_CSVC_CanHo">
+      <End Role="CanHo" EntitySet="CanHo" />
+      <End Role="CSVC" EntitySet="CSVC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CSVC_NhanVien" Association="Self.FK_CSVC_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="CSVC" EntitySet="CSVC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CuDan_CanHo" Association="Self.FK_CuDan_CanHo">
+      <End Role="CanHo" EntitySet="CanHo" />
+      <End Role="CuDan" EntitySet="CuDan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CuDan_CuDan" Association="Self.FK_CuDan_CuDan">
+      <End Role="CuDan" EntitySet="CuDan" />
+      <End Role="CuDan1" EntitySet="CuDan" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
