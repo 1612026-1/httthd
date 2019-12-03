@@ -29,5 +29,14 @@ namespace _1612026_QuanLyChungCu_Web.Controllers
         }
 
 
+        //public CSVC GetNameCSVC(string name_csvc)
+        //{
+        //    using (ChungCuEntities2 entities2=new ChungCuEntities2())
+        //    {
+        //        entities2.Configuration.ProxyCreationEnabled = false;
+        //        return entities2.CSVCs.First
+        //    }
+        //}
+
     }
 }
