@@ -19,6 +19,17 @@ namespace _1612026_QuanLyChungCu_Web.Controllers
             }
         }
 
+        //public string GetTenCanHoCSVC_text()
+        //{
+        //    using (ChungCuEntities2 entities2 = new ChungCuEntities2())
+        //    {
+        //        entities2.Configuration.ProxyCreationEnabled = false;
+        //        return entities2.CSVCs.FirstOrDefault(e => e.TenCSVC==);
+
+        //    }
+
+        //}
+
         public CSVC GetCSVC(int id)
         {
             using (ChungCuEntities2 entities = new ChungCuEntities2())

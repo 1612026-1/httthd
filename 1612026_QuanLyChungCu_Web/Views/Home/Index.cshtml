@@ -29,9 +29,18 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <form action="/action_page.php">
+                <form>
+                    <!--action="/action_page.php"-->
                     <input type="file" name="pic" accept="image/*">
-                    <input id="submitPic" type="submit">
+                    <input id="submitPic" type="submit" onclick="submitPicFunc()">
+                    <script>
+                        function submitPicFunc() {
+/*                            history.back();
+*/                            alert("Đăng hình ảnh thành công");
+
+                        };
+
+                    </script>
                 </form>
             </div>
 

@@ -34,8 +34,14 @@ $(document).ready(function () {
     <label>User name</label>
     <input type="text" class="form-control" id="exampleInputUsername" placeholder="" readonly>
   </div>
-  <button type="submit" class="btn btn-primary">Cập nhật</button>
+  <button type="submit" class="btn btn-primary" onclick="updateFunc()">Cập nhật</button>
+    <script>
+        function updateFunc(){
+            alert("Cập nhật thông tin Cư dân thành công");
+        }
+    </script>
 </form>
+
         `);
     });
 

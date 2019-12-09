@@ -34,7 +34,12 @@ $(document).ready(function () {
     <label>Chủ sở hữu</label>
     <input type="text" class="form-control" id="exampleInputOwner" placeholder="" readonly>
   </div>
-  <button type="submit" class="btn btn-primary">Cập nhật</button>
+  <button type="submit" class="btn btn-primary" onclick="updateFunc1()">Cập nhật</button>
+    <script>
+        function updateFunc1(){
+            alert("Cập nhật thông tin Cư dân thành công");
+        }
+    </script>
 </form>
         `);
     });
